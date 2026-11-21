@@ -40,7 +40,7 @@ export function CompareProvider({ children }: { children: React.ReactNode }) {
     }
 
     const defaultSelection = [
-      MODELS.find((m) => m.slug === "claude-3-5-sonnet") || MODELS[0],
+      MODELS.find((m) => m.slug === "claude-3-7-sonnet") || MODELS.find((m) => m.slug === "claude-3-5-sonnet") || MODELS[0],
       MODELS.find((m) => m.slug === "deepseek-r1") || MODELS[2],
     ].filter(Boolean) as Model[];
     setSelectedModels(defaultSelection);

@@ -185,7 +185,7 @@ export default function ComparePage() {
               }}
               className="rounded-xl bg-sky-600 px-4 py-2 text-xs font-semibold text-white hover:bg-sky-500 transition-colors shadow-sm"
             >
-              Compare Claude 3.5 Sonnet vs DeepSeek R1
+              Compare Claude 3.7 Sonnet vs DeepSeek R1
             </button>
             <Link
               href="/"
