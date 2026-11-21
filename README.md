@@ -83,7 +83,7 @@ src/
 │   ├── CompareContext.tsx       # Comparison state & LocalStorage sync
 │   └── ToastContext.tsx         # Notification queue
 ├── data/
-│   └── mockData.ts              # Normalized seed dataset (19 frontier models, 6 labs, 6 hosts)
+│   └── mockData.ts              # Normalized seed dataset (20 frontier 2025/2026 models, 8 labs, 6 hosts)
 ├── lib/
 │   └── api.ts                   # Decoupled, typed API client
 └── types/

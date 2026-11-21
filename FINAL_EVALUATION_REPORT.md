@@ -94,7 +94,7 @@ d:\Downloads\Intern\src\
 │   ├── CompareContext.tsx           # Global comparison state & LocalStorage sync
 │   └── ToastContext.tsx             # Lightweight notification queue
 ├── data/
-│   └── mockData.ts                  # Normalized seed dataset (19 frontier models, 6 labs, 6 hosts)
+│   └── mockData.ts                  # Normalized seed dataset (20 frontier 2025/2026 models, 8 labs, 6 hosts)
 ├── lib/
 │   └── api.ts                       # Typed API client with query string builder
 └── types/
