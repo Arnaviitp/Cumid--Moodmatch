@@ -1,13 +1,16 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useCompare } from "@/context/CompareContext";
 import { SlidersHorizontal, X, ArrowRight, Trash2 } from "lucide-react";
 
 export function ComparisonDrawer() {
+  const pathname = usePathname();
   const { selectedModels, removeModel, clearModels } = useCompare();
 
-  if (selectedModels.length === 0) return null;
+  // Hide the floating dock on the /compare page itself so it does not occlude the comparison table
+  if (pathname === "/compare" || selectedModels.length === 0) return null;
 
   return (
     <aside aria-label="Model Comparison Dock" className="fixed bottom-5 left-1/2 -translate-x-1/2 z-40 w-full max-w-2xl px-4 animate-bounce-subtle">

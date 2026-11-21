@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useCompare } from "@/context/CompareContext";
@@ -29,18 +29,39 @@ export default function ComparePage() {
   const [completionTokens, setCompletionTokens] = useState<number>(500);
   const [requestVolume, setRequestVolume] = useState<number>(50000);
 
-  // Sync URL query params if user lands directly with ?models=...
+  // Track if initial sync from URL query params has occurred
+  const initializedRef = useRef(false);
+
+  // Sync URL query params once upon landing directly with ?models=...
   useEffect(() => {
+    if (initializedRef.current) return;
     const urlModels = searchParams?.get("models");
     if (urlModels) {
       const slugs = urlModels.split(",").map((s) => s.trim());
       setModelsBySlugs(slugs);
     }
+    initializedRef.current = true;
   }, [searchParams, setModelsBySlugs]);
 
-  // Keep URL updated when selectedModels change
+  // Handle browser Back/Forward navigation
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    const handlePopState = () => {
+      const params = new URLSearchParams(window.location.search);
+      const urlModels = params.get("models");
+      if (urlModels) {
+        const slugs = urlModels.split(",").map((s) => s.trim());
+        setModelsBySlugs(slugs);
+      } else {
+        clearModels();
+      }
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, [setModelsBySlugs, clearModels]);
+
+  // Keep URL updated when selectedModels change (only after initial load)
+  useEffect(() => {
+    if (!initializedRef.current || typeof window === "undefined") return;
     if (selectedModels.length > 0) {
       const slugs = selectedModels.map((m) => m.slug).join(",");
       window.history.replaceState(null, "", `/compare?models=${slugs}`);

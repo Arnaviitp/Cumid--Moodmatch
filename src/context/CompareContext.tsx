@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
 import { Model } from "@/types";
 import { MODELS } from "@/data/mockData";
 import { useToast } from "@/context/ToastContext";
@@ -46,48 +46,60 @@ export function CompareProvider({ children }: { children: React.ReactNode }) {
     setSelectedModels(defaultSelection);
   }, []);
 
-  const addModel = (model: Model) => {
-    if (selectedModels.length >= 4) {
-      showToast("Comparison limit reached (max 4 models).", "warning");
-      return;
-    }
-    if (!selectedModels.some((m) => m.id === model.id)) {
-      setSelectedModels((prev) => [...prev, model]);
+  const addModel = useCallback((model: Model) => {
+    setSelectedModels((prev) => {
+      if (prev.length >= 4) {
+        showToast("Comparison limit reached (max 4 models).", "warning");
+        return prev;
+      }
+      if (!prev.some((m) => m.id === model.id)) {
+        showToast(`Added ${model.name} to comparison.`, "success");
+        return [...prev, model];
+      }
+      return prev;
+    });
+  }, [showToast]);
+
+  const removeModel = useCallback((modelId: string) => {
+    setSelectedModels((prev) => {
+      const model = prev.find((m) => m.id === modelId || m.slug === modelId);
+      if (model) {
+        showToast(`Removed ${model.name} from comparison.`, "info");
+      }
+      return prev.filter((m) => m.id !== modelId && m.slug !== modelId);
+    });
+  }, [showToast]);
+
+  const toggleModel = useCallback((model: Model) => {
+    setSelectedModels((prev) => {
+      if (prev.some((m) => m.id === model.id)) {
+        showToast(`Removed ${model.name} from comparison.`, "info");
+        return prev.filter((m) => m.id !== model.id);
+      }
+      if (prev.length >= 4) {
+        showToast("Comparison limit reached (max 4 models).", "warning");
+        return prev;
+      }
       showToast(`Added ${model.name} to comparison.`, "success");
-    }
-  };
+      return [...prev, model];
+    });
+  }, [showToast]);
 
-  const removeModel = (modelId: string) => {
-    const model = selectedModels.find((m) => m.id === modelId);
-    setSelectedModels((prev) => prev.filter((m) => m.id !== modelId));
-    if (model) {
-      showToast(`Removed ${model.name} from comparison.`, "info");
-    }
-  };
-
-  const toggleModel = (model: Model) => {
-    if (selectedModels.some((m) => m.id === model.id)) {
-      removeModel(model.id);
-    } else {
-      addModel(model);
-    }
-  };
-
-  const clearModels = () => {
+  const clearModels = useCallback(() => {
     setSelectedModels([]);
     showToast("Cleared comparison list.", "info");
-  };
+  }, [showToast]);
 
-  const isModelSelected = (modelId: string) => {
-    return selectedModels.some((m) => m.id === modelId);
-  };
+  const isModelSelected = useCallback((modelId: string) => {
+    return selectedModels.some((m) => m.id === modelId || m.slug === modelId);
+  }, [selectedModels]);
 
-  const setModelsBySlugs = (slugs: string[]) => {
+  const setModelsBySlugs = useCallback((slugs: string[]) => {
     const matched = slugs
       .map((s) => MODELS.find((m) => m.slug === s || m.id === s))
       .filter(Boolean) as Model[];
     setSelectedModels(matched.slice(0, 4));
-  };
+  }, []);
 
   return (
     <CompareContext.Provider
