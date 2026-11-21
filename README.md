@@ -26,7 +26,7 @@ This repository contains the complete submission for **Role 1 — Frontend Engin
 - **Automated Metric Deltas:** Real-time visual callouts for best-in-class attributes (lowest input/output price, longest context window, highest LMSYS Arena ELO).
 - **Contextual Single-Model Helper:** When evaluating a single model, an intelligent recommendation banner suggests 1-click popular benchmark counterparts.
 - **Multi-Model ROI & Cost Simulator:** Adjust expected prompt tokens, completion tokens, and monthly request volumes to compute exact comparative monthly operational costs.
-- **Shareable Matrix State:** Generates persistent, shareable URLs containing encoded model comparisons (e.g., `/compare?models=claude-3-5-sonnet,deepseek-r1`).
+- **Shareable Matrix State:** Generates persistent, shareable URLs containing encoded model comparisons (e.g., `/compare?models=claude-3-7-sonnet,deepseek-r1`).
 
 ### 3. 📊 Deep-Dive Model Detail Specifications
 - Dynamic slug routing (`/models/[slug]`) rendering complete architectural overviews, license details, and context scale gauges up to 2 million tokens.
@@ -83,7 +83,7 @@ src/
 │   ├── CompareContext.tsx       # Comparison state & LocalStorage sync
 │   └── ToastContext.tsx         # Notification queue
 ├── data/
-│   └── mockData.ts              # Normalized seed dataset (10 models, 6 labs, 6 hosts)
+│   └── mockData.ts              # Normalized seed dataset (19 frontier models, 6 labs, 6 hosts)
 ├── lib/
 │   └── api.ts                   # Decoupled, typed API client
 └── types/
