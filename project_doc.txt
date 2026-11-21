@@ -1,0 +1,150 @@
+﻿Demo Task
+AI Software Engineer Internship
+Read This Carefully Before Starting
+This assignment is designed to evaluate your ability to think, build, and execute independently. We are not expecting a perfect production system. We value ownership, problem-solving, engineering quality, and execution.
+You will be building https://oneatlas.dev/ , an AI model discovery and intelligence platform inspired by existing AI infrastructure products.
+You may use ChatGPT, Claude, Cursor, GitHub Copilot, and other AI-assisted development tools. However, you must understand your code and be able to explain your architecture and technical decisions.
+________________
+
+
+Step 1 — Choose Your Role
+Choose ONLY ONE role:
+Role 1 - Frontend Engineer
+* UI architecture and product experience
+* React components and state management
+* Search, filtering and responsive design
+* Frontend performance
+Role 2 - Backend Engineer
+* API development and database design
+* Data ingestion and normalization
+* Validation and backend architecture
+* Performance and scalability
+Role 3 - Full Stack Engineer
+* End-to-end product development
+* Frontend and backend integration
+* Database and API architecture
+* Deployment and system design
+All three roles will work on the same product. Evaluation will be based on your selected role.
+________________
+
+
+Mandatory Tech Stack
+Frontend
+* Next.js, React, TypeScript, TailwindCSS
+Backend
+* Node.js, TypeScript
+* Next.js API Routes or NestJS
+Database
+* PostgreSQL
+* Prisma ORM
+Preferred Deployment
+* Vercel, Railway, Render, Cloudflare or Neon
+________________
+
+
+📤 Submission
+Submit via Google Form: https://forms.gle/oDQ6ucjpiFaZtCGL9 
+Required:
+1. Live URL (working product)
+2. GitHub repository URL
+3. Loom video (5–10 minutes) explaining architecture, features, technical decisions and challenges.
+________________
+
+
+ONEATLAS.DEV — AI MODEL DISCOVERY & INTELLIGENCE PLATFORM
+Product: https://oneatlas.dev/
+Reference Platforms
+Study these three platforms before starting:
+1. OpenRouter — https://openrouter.ai/
+2. RouterPlus — https://routerplus.com/
+3. LiteLLM — https://www.litellm.ai/
+Understand their product experience, model discovery, search, pricing, provider ecosystem, and developer workflows.
+You are not expected to replicate these platforms. Use them as references to identify relevant features and build a better OneAtlas experience.
+Objective
+Build a functional MVP of OneAtlas that helps developers, AI engineers, and researchers discover, explore, compare, and evaluate AI models across different providers.
+Core Product Requirements
+1. Model Discovery & Search
+* Browse and search AI models.
+* Filter by company, provider, capabilities and model type.
+* Sort by pricing, context window and release date.
+* Display model specifications and pricing.
+2. Model Detail Pages
+* Model overview and specifications.
+* Input/output pricing and context window.
+* Supported modalities and capabilities.
+* Available providers and benchmarks.
+3. Model Comparison
+* Compare multiple models side by side.
+* Compare pricing, context length, capabilities and benchmarks.
+4. Rankings & Benchmarks
+* Display model rankings and leaderboards.
+* Filter by model categories and benchmarks.
+* Show comparative performance scores.
+5. AI Labs & Provider Directory
+* Browse AI companies and research labs.
+* Explore their models and releases.
+* Discover providers and their supported models.
+6. Product Experience
+* Clean navigation and global search.
+* Responsive layouts.
+* Structured model listings and detail pages.
+* Consistent user experience across the platform.
+You may use mock or generated datasets, but application data must be managed through the database and APIs. Avoid hardcoded frontend-only implementations.
+________________
+
+
+Frontend Engineer Expectations
+Build the frontend experience, including:
+* Model discovery and search.
+* Filtering and sorting.
+* Model detail pages.
+* Comparison interfaces.
+* Rankings and provider directories.
+* Responsive and reusable UI components.
+* API integration and state management.
+Evaluation: UI/UX, component architecture, responsiveness, performance and code quality.
+Backend Engineer Expectations
+Build the backend infrastructure, including:
+* Model and provider APIs.
+* Database schema and relationships.
+* Search, filtering and pagination.
+* Pricing and benchmark data management.
+* Data validation and normalization.
+* Error handling and API reliability.
+Evaluation: Database design, API architecture, data consistency, validation and performance.
+Full Stack Engineer Expectations
+Build the complete product, including:
+* Frontend and backend.
+* Database and API integration.
+* Model discovery and comparison workflows.
+* Rankings and provider directories.
+* Deployment and working functionality.
+Evaluation: Architecture, integration, reliability, scalability and execution quality.
+________________
+
+
+Important — AI-Assisted Development
+AI-assisted tools such as ChatGPT, Claude, Cursor, Antigravity and GitHub Copilot are allowed.
+However, fully generated no-code/low-code platforms are NOT allowed.
+Do NOT use:
+* Lovable
+* Bolt.new
+* Base44
+* Replit AI app generation
+* Firebase Studio generated apps
+* Google AI Studio generated apps
+* Similar prompt-to-app generators
+You must understand your implementation and explain your technical decisions.
+________________
+
+
+⚠️ Important Note
+This assignment is intentionally challenging. We want to identify people who can operate with high ownership and high agency.
+You are expected to:
+* Research independently.
+* Make technical and product decisions.
+* Navigate ambiguity.
+* Solve problems without constant guidance.
+* Take ownership of your implementation.
+This is not a typical internship assignment. It reflects the kind of real-world product engineering challenges you will work on.
+If you enjoy building products from scratch, solving complex problems, and taking ownership, you will find this exciting.
